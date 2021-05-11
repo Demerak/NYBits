@@ -9,6 +9,7 @@
 ## Core Pkgs
 import time
 import random 
+from tqdm import tqdm
 
 ## EDA Pkgs
 import pandas as pd
@@ -40,7 +41,7 @@ for neighberhood in url_dict:
 
     ## Find the list of all the apartment and iterate over all of them
     url_list = soup.find('ul', {'class': 'spacyul buildingul'})
-    for litag in url_list.find_all('li'):
+    for litag in tqdm(url_list.find_all('li')):
         ## dataframe_data --> data inside the dataframe, 
         ## dataframe_column --> names of all the columns 
         dataframe_data = [[]] 
